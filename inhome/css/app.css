@@ -9,6 +9,7 @@ body {
 	margin: 0px;
 	background: #152931;
 	user-select: none;
+	margin-left:20%;
 }
 button {
 	text-shadow: 1px 1px #000;
@@ -32,23 +33,13 @@ button img {
 	float: right;
 	padding-top:11px;
 }
-footer {
-	position: fixed;
-	left: 0px;
-	bottom: 0px;
-	height: 20px;
-	width: 100%;
-	font-size: 12px;
-	color: #009562;
-	opacity: 0.6;
-}
 hr {
 	border: none;
 	margin-top: 15px;
 }
 .clima {
 	color: #44535A;
-	font-size: 55px;
+	font-size: 50px;
 	font-weight: 400;
 	font-family: "Digital";
 }
