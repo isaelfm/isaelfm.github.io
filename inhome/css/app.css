@@ -1,4 +1,8 @@
 @charset "utf-8";
+@font-face {
+	font-family: "Digital";
+	src: url("../digital.ttf");
+}
 body {
 	text-align: center;
 	font-family: Segoe, "Segoe UI";
@@ -38,7 +42,7 @@ footer {
 	width: 100%;
 	font-size: 12px;
 	color: #009562;
-	opacity:0.6;
+	opacity: 0.6;
 }
 hr {
 	border: none;
@@ -48,7 +52,7 @@ hr {
 	color: #44535A;
 	font-size: 55px;
 	font-weight: 400;
-	font-family: "Myriad Pro", Arial, sans-serif;
+	font-family: "Digital";
 }
 small {
 	font-size: 60%;
