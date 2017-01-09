@@ -9,8 +9,6 @@ body {
 	margin: 0px;
 	background: #152931;
 	user-select: none;
-	min-height:1400px;
-	max-width:1000px;
 }
 button {
 	text-shadow: 1px 1px #000;
