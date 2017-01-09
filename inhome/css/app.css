@@ -26,7 +26,7 @@ button {
 	line-height: 40px;
 }
 body img {
-	margin-top: 5px;
+	margin-top: 10px;
 }
 button:hover {
 	background-image: -webkit-linear-gradient(top, #9b9fa2, #2a2d2f);
