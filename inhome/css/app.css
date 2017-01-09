@@ -23,7 +23,7 @@ button {
 	box-shadow: 0px 1px 5px #666666;
 	font-weight: bold;
 	font-size: 14px;
-	padding: 10px;
+	padding: 12px;
 }
 button:hover {
 	background-image: -webkit-linear-gradient(top, #9b9fa2, #2a2d2f);
