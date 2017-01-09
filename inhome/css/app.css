@@ -23,14 +23,17 @@ button {
 	box-shadow: 0px 1px 5px #666666;
 	font-weight: bold;
 	font-size: 14px;
-	line-height:40px;
+	line-height: 40px;
+}
+body img {
+	margin-top: 5px;
 }
 button:hover {
 	background-image: -webkit-linear-gradient(top, #9b9fa2, #2a2d2f);
 }
 button img {
 	float: right;
-	padding-top:11px;
+	padding-top: 11px;
 }
 hr {
 	border: none;
