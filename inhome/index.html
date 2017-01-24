@@ -1,7 +1,12 @@
-
 <!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>inHome</title>
+<base href="https://isaelfm.github.io/inhome/">
+<link rel="icon" href="img/ico.png">
+<link rel="stylesheet" type="text/css" href="css/app.css">
 <style type="text/css">
 	h4{    line-height: 1px;
     font-size: 18px;
@@ -12,20 +17,82 @@
 margin-bottom: 10px;    box-shadow: 0px 1px 5px #666666;
 overflow: hidden;}
 </style>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<title>inHome</title>
-<base href="https://isaelfm.github.io/inhome/">
-<link rel="icon" href="img/ico.png">
-<link rel="stylesheet" type="text/css" href="css/app.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+//atualiza temperatura a cada 2 segundos
+var auto_refresh = setInterval(
+function ()
+{
+		$.get( "http://192.168.2.190", {} )
+	  .done(function( data ) {
+	    var xml = $.parseXML(data),
+	  $xml = $( xml ),
+	  temperatura = $xml.find('temperatura').text();
+	  $('#temperatura').text(temperatura);
+	  });
+}, 2000);
+
+function atualizar(){
+	$('#botoes').empty();
+	$.get( "http://192.168.2.190", {} )
+	  .done(function( data ) {
+	    var xml = $.parseXML(data),
+	  $xml = $( xml ),
+	  sala = $xml.find('sala').text();
+	  quarto = $xml.find('quarto').text();
+	  area = $xml.find('area').text();
+	  lavanderia = $xml.find('lavanderia').text();
+	  horas = $xml.find('horas').text();
+	  temperatura = $xml.find('temperatura').text();
+
+	  $('#temperatura').text(temperatura);
+	  if(sala==1){
+	  	$('#botoes').append("<button onclick=\"lampada('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
+	  }
+	  else
+	  {
+	  	$('#botoes').append("<button onclick=\"lampada('sala', 1);\"><img src=\"img/lampada_off.png\"> Sala&Cozinha</button>");
+	  }
+
+	  if(quarto==1){
+	  	$('#botoes').append("<button onclick=\"lampada('quarto', 0);\"><img src=\"img/lampada_on.png\"> Quarto</button>");
+	  }
+	  else
+	  {
+	  	$('#botoes').append("<button onclick=\"lampada('quarto', 1);\"><img src=\"img/lampada_off.png\"> Quarto</button>");
+	  }
+
+	  if(area==1){
+	  	$('#botoes').append("<button onclick=\"lampada('area', 0);\"><img src=\"img/lampada_on.png\"> Área</button>");
+	  }
+	  else
+	  {
+	  	$('#botoes').append("<button onclick=\"lampada('area', 1);\"><img src=\"img/lampada_off.png\"> Área</button>");
+	  }
+
+	  if(lavanderia==1){
+	  	$('#botoes').append("<button onclick=\"lampada('lavanderia', 0);\"><img src=\"img/lampada_on.png\"> Lavanderia</button>");
+	  }
+	  else
+	  {
+	  	$('#botoes').append("<button onclick=\"lampada('lavanderia', 1);\"><img src=\"img/lampada_off.png\"> Lavanderia</button>");
+	  }
+	  });
+}
+atualizar();
+
+function lampada(lampada, estado){
+	$.get("http://192.168.2.190/?"+lampada+"="+estado+"");
+	atualizar();
+}
+</script>
 </head>
 <body>
 <a href="index.html"><img src="img/inhome.png"></a>
 <hr>
-<button onclick="window.location.href='?sala=1'"><img src="img/lampada_on.png"> Sala</button>
-<button onclick="window.location.href='?cozinha=1'" ><img src="img/lampada_off.png"> Cozinha</button>
-<button onclick="window.location.href='?calcada=1'" ><img src="img/lampada_off.png"> Calçada</button>
-<button onclick="window.location.href='?banheiro=1'" ><img src="img/lampada_off.png"> Banheiro</button>
+<div id="botoes">
+
+</div>
 <br>
 <hr>
 <br>
@@ -49,6 +116,6 @@ overflow: hidden;}
 	<option>SOURCE</option>
 </select>
 <button onclick="window.location.href='?banheiro=1'" >Enviar</button>
-<div class="clima">25<small>°c</small> <i> - </i> 40<small>%</small></div>
+<div class="clima"><span id="temperatura"></span><small>°c</small> <i> - </i> 40<small>%</small></div>
 </body>
 </html>
