@@ -33,7 +33,6 @@ function ()
 }, 2000);
 
 function atualizar(){
-	$('#botoes').empty();
 	$.get( "http://192.168.2.190", {} )
 	  .done(function( data ) {
 	    var xml = $.parseXML(data),
@@ -46,6 +45,7 @@ function atualizar(){
 	  temperatura = $xml.find('temperatura').text();
 
 	  $('#temperatura').text(temperatura);
+	  $('#botoes').empty();
 	  if(sala==1){
 	  	$('#botoes').append("<button onclick=\"lampada('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
 	  }
