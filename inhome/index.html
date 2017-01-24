@@ -1,6 +1,17 @@
+
 <!doctype html>
 <html>
 <head>
+<style type="text/css">
+	h4{    line-height: 1px;
+    font-size: 18px;
+    color: #009562;}
+    select{width: 80%;
+    padding: 10px;
+    border-radius: 4px;
+margin-bottom: 10px;    box-shadow: 0px 1px 5px #666666;
+overflow: hidden;}
+</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <title>inHome</title>
@@ -15,9 +26,29 @@
 <button onclick="window.location.href='?cozinha=1'" ><img src="img/lampada_off.png"> Cozinha</button>
 <button onclick="window.location.href='?calcada=1'" ><img src="img/lampada_off.png"> Calçada</button>
 <button onclick="window.location.href='?banheiro=1'" ><img src="img/lampada_off.png"> Banheiro</button>
-<button onclick="window.location.href='?quarto=1'" ><img src="img/lampada_on.png"> Quarto</button>
-<button onclick="window.location.href='?lavanderia=1'" ><img src="img/lampada_off.png"> Lavanderia</button>
-<button onclick="window.location.href='?area=1'" ><img src="img/lampada_off.png"> Área</button>
+<br>
+<hr>
+<br>
+<center><img src="img/tvsala.png"></center>
+<select multiple size="5">
+	<option>Power</option>
+	<option>CH +</option>
+	<option>CH -</option>
+	<option>VOL +</option>
+	<option>VOL -</option>
+</select>
+<button onclick="window.location.href='?banheiro=1'" >Enviar</button>
+<br>
+<center><img src="img/tvquarto.png"></center>
+<select multiple size="6">
+	<option>Power</option>
+	<option>CH +</option>
+	<option>CH -</option>
+	<option>VOL +</option>
+	<option>VOL -</option>
+	<option>SOURCE</option>
+</select>
+<button onclick="window.location.href='?banheiro=1'" >Enviar</button>
 <div class="clima">25<small>°c</small> <i> - </i> 40<small>%</small></div>
 </body>
 </html>
