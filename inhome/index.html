@@ -14,6 +14,7 @@ var inhomeip = "http://192.168.2.190/"; //ip inhometx
 function atualizar(){
 	$.get(inhomeip, {} )
 	  .done(function( data ) {
+	  	//parse xml
 	    var xml = $.parseXML(data),
 		$xml = $( xml ),
 		sala = $xml.find('sala').text();
@@ -23,8 +24,10 @@ function atualizar(){
 		horas = $xml.find('horas').text();
 		temperatura = $xml.find('temperatura').text();
 
-	  $('#temperatura').text(temperatura);
-	  $('#botoes').empty();
+	  $('#temperatura').text(temperatura); //atualiza temperatura
+	  $('#botoes').empty(); //remove todos os botões
+
+	  //construção dos botões
 	  if(sala==1){
 	  	$('#botoes').append("<button onclick=\"toggle('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
 	  }
@@ -60,7 +63,7 @@ function atualizar(){
 }
 
 function toggle(lampada, estado){
-	$.get(""+inhomeip+"?"+lampada+"="+estado+"");
+	$.get(""+inhomeip+"?"+lampada+"="+estado+""); //q gambiarra hein... 
 	atualizar();
 }
 
@@ -71,9 +74,7 @@ atualizar(); //chama função atualizar no início do programa
 <a href="index.html"><img src="img/inhome.png"></a>
 <hr>
 <div id="botoes"></div>
-<br>
 <hr>
-<br>
 <center><img src="img/tvsala.png"></center>
 <select>
 	<option>Power</option>
