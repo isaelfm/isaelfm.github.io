@@ -10,8 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/app.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+var inhomeip = "http://192.168.2.190/"; //ip inhometx
 function atualizar(){
-	$.get( "http://192.168.2.190", {} )
+	$.get(inhomeip, {} )
 	  .done(function( data ) {
 	    var xml = $.parseXML(data),
 		$xml = $( xml ),
@@ -25,41 +26,41 @@ function atualizar(){
 	  $('#temperatura').text(temperatura);
 	  $('#botoes').empty();
 	  if(sala==1){
-	  	$('#botoes').append("<button onclick=\"switch('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"switch('sala', 1);\"><img src=\"img/lampada_off.png\"> Sala&Cozinha</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('sala', 1);\"><img src=\"img/lampada_off.png\"> Sala&Cozinha</button>");
 	  }
 
 	  if(quarto==1){
-	  	$('#botoes').append("<button onclick=\"switch('quarto', 0);\"><img src=\"img/lampada_on.png\"> Quarto</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('quarto', 0);\"><img src=\"img/lampada_on.png\"> Quarto</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"switch('quarto', 1);\"><img src=\"img/lampada_off.png\"> Quarto</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('quarto', 1);\"><img src=\"img/lampada_off.png\"> Quarto</button>");
 	  }
 
 	  if(area==1){
-	  	$('#botoes').append("<button onclick=\"switch('area', 0);\"><img src=\"img/lampada_on.png\"> Área</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('area', 0);\"><img src=\"img/lampada_on.png\"> Área</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"switch('area', 1);\"><img src=\"img/lampada_off.png\"> Área</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('area', 1);\"><img src=\"img/lampada_off.png\"> Área</button>");
 	  }
 
 	  if(lavanderia==1){
-	  	$('#botoes').append("<button onclick=\"switch('lavanderia', 0);\"><img src=\"img/lampada_on.png\"> Lavanderia</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 0);\"><img src=\"img/lampada_on.png\"> Lavanderia</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"switch('lavanderia', 1);\"><img src=\"img/lampada_off.png\"> Lavanderia</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 1);\"><img src=\"img/lampada_off.png\"> Lavanderia</button>");
 	  }
 	  });
 }
 
-function switch(lampada, estado){
-	$.get("http://192.168.2.190/?"+lampada+"="+estado+"");
+function toggle(lampada, estado){
+	$.get(""+inhomeip+"?"+lampada+"="+estado+"");
 	atualizar();
 }
 
