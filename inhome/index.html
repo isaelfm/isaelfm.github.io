@@ -14,6 +14,9 @@ var inhomeip = "http://192.168.2.190/"; //ip inhometx
 function atualizar(){
 	$.get(inhomeip, {} )
 	  .done(function( data ) {
+	  	if(data==0){
+	  		alert('Falha ao conectar com inhometx.')
+	  	}
 	  	//parse xml
 	    var xml = $.parseXML(data),
 		$xml = $( xml ),
