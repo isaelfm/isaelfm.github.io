@@ -29,11 +29,11 @@ function atualizar(){
 
 	  //construção dos botões
 	  if(sala==1){
-	  	$('#botoes').append("<button onclick=\"toggle('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala&Cozinha</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('sala', 0);\"><img src=\"img/lampada_on.png\"> Sala / Cozinha</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"toggle('sala', 1);\"><img src=\"img/lampada_off.png\"> Sala&Cozinha</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('sala', 1);\"><img src=\"img/lampada_off.png\"> Sala / Cozinha</button>");
 	  }
 
 	  if(quarto==1){
@@ -53,11 +53,11 @@ function atualizar(){
 	  }
 
 	  if(lavanderia==1){
-	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 0);\"><img src=\"img/lampada_on.png\"> Lavanderia</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 0);\" disabled><img src=\"img/lampada_on.png\"> Lavanderia</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 1);\"><img src=\"img/lampada_off.png\"> Lavanderia</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 1);\" disabled><img src=\"img/lampada_off.png\"> Lavanderia</button>");
 	  }
 	  });
 }
