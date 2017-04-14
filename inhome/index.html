@@ -15,7 +15,7 @@ function atualizar(){
 	$.get(inhomeip, {} )
 	  .done(function( data ) {
 	  	if(data==0){
-	  		alert('Falha ao conectar com inhometx.')
+	  		alert('Falha ao conectar com inhometx.');
 	  	}
 	  	//parse xml
 	    var xml = $.parseXML(data),
@@ -23,7 +23,7 @@ function atualizar(){
 		sala = $xml.find('sala').text();
 		quarto = $xml.find('quarto').text();
 		area = $xml.find('area').text();
-		lavanderia = $xml.find('lavanderia').text();
+		som = $xml.find('som').text();
 		horas = $xml.find('horas').text();
 		temperatura = $xml.find('temperatura').text();
 
@@ -55,12 +55,12 @@ function atualizar(){
 	  	$('#botoes').append("<button onclick=\"toggle('area', 1);\"><img src=\"img/lampada_off.png\"> Área</button>");
 	  }
 
-	  if(lavanderia==1){
-	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 0);\" disabled><img src=\"img/lampada_on.png\"> Lavanderia</button>");
+	  if(som==1){
+	  	$('#botoes').append("<button onclick=\"toggle('som', 0);\" disabled><img src=\"img/lampada_on.png\"> Som & TV</button>");
 	  }
 	  else
 	  {
-	  	$('#botoes').append("<button onclick=\"toggle('lavanderia', 1);\" disabled><img src=\"img/lampada_off.png\"> Lavanderia</button>");
+	  	$('#botoes').append("<button onclick=\"toggle('som', 1);\" disabled><img src=\"img/lampada_off.png\"> Som & TV</button>");
 	  }
 	  });
 }
